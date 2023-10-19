@@ -3,16 +3,21 @@ package com.mycompany.akinator_bobesponja;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Random;
+import java.util.stream.Collectors;
+
+// Essa é apenas a base do código do jogo, precisamos entender tudo melhor e criar a UI
 
 public class JogoPerguntas {
-
+    private List<Personagens> personagens;
     private List<Pergunta> perguntas;
-    private int acertos;
 
     public JogoPerguntas() {
+        personagens = new ArrayList<>();
         perguntas = new ArrayList<>();
-        // Adicione suas perguntas aqui
+
+        // Adicione os personagens aqui
+
+        // Adicione as perguntas aqui
         perguntas.add(new Pergunta("Seu personagem é do sexo M ou F?"));
         perguntas.add(new Pergunta("Seu personagem tem um emprego?"));
         perguntas.add(new Pergunta("Seu personagem trabalha com comida?"));
@@ -27,94 +32,32 @@ public class JogoPerguntas {
         perguntas.add(new Pergunta("Seu personagem é um esquilo?"));
         perguntas.add(new Pergunta("Seu personagem é professora?"));
         perguntas.add(new Pergunta("Seu personagem é uma máquina?"));
-        
     }
 
     public void iniciarJogo() {
         Scanner scanner = new Scanner(System.in);
-        acertos = 0;
-
-        System.out.println("Bem-vindo ao Akinator da Fenda do Bikini!\n");
-
         for (Pergunta pergunta : perguntas) {
             pergunta.exibirPergunta();
-            System.out.print("Sua resposta: ");
-            char resposta = scanner.nextLine().charAt(0);
+            String resposta = scanner.nextLine();
 
-            if (pergunta.verificarResposta(resposta)) {
-                System.out.println("Resposta correta!\n");
-                acertos++;
-            } else {
-                System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
-            }
-        }
-
-        System.out.println("Pontuação final: " + acertos + " de " + perguntas.size() + " perguntas.");
-    }
-
-    public void iniciarJogoPerguntasAleatorias() {
-        Scanner scanner = new Scanner(System.in);
-        acertos = 0;
-
-        System.out.println("Bem-vindo ao jogo de perguntas e respostas!\n");
-
-        List<Pergunta> perguntasNaoRespondidas = new ArrayList<>(perguntas); // Copie todas as perguntas inicialmente
-
-        while (!perguntasNaoRespondidas.isEmpty()) {
-            int indiceAleatorio = new Random().nextInt(perguntasNaoRespondidas.size());
-            Pergunta pergunta = perguntasNaoRespondidas.get(indiceAleatorio);
-
-            pergunta.exibirPergunta();
-            System.out.print("Sua resposta: ");
-            char resposta = scanner.nextLine().charAt(0);
-
-            if (pergunta.verificarResposta(resposta)) {
-                System.out.println("Resposta correta!\n");
-                acertos++;
-            } else {
-                System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
+            // Lógica do jogo aqui
+            // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas.
+            if (pergunta.getPergunta().equals("Seu personagem é do sexo M ou F?")) {
+                personagens = personagens.stream()
+                    .filter(p -> p.sexo == resposta.charAt(0))
+                    .collect(Collectors.toList());
+            } else if (pergunta.getPergunta().equals("Seu personagem tem um emprego?")) {
+                // Implemente a lógica aqui
+            } else if (pergunta.getPergunta().equals("Seu personagem trabalha com comida?")) {
+                // Implemente a lógica aqui
+            } else if (pergunta.getPergunta().equals("Seu personagem trabalha no Siri Cascudo?")) {
+                // Implemente a lógica aqui
             }
 
-            // Remova a pergunta da lista de perguntas não respondidas
-            perguntasNaoRespondidas.remove(indiceAleatorio);
-        }
-
-        System.out.println("Pontuação final: " + acertos + " de " + perguntas.size() + " perguntas.");
-    }
-
-    public void iniciarJogoLimitada() {
-        Scanner scanner = new Scanner(System.in);
-        acertos = 0;
-
-        System.out.println("Bem-vindo ao jogo de perguntas e respostas!\n");
-
-        List<Pergunta> perguntasNaoRespondidas = new ArrayList<>(perguntas); // Copie todas as perguntas inicialmente
-        int numPerguntasLimit = 5; // Limite de 5 perguntas
-
-        int numPerguntasFeitas = 0; // Contador de perguntas feitas
-
-        while (!perguntasNaoRespondidas.isEmpty() && numPerguntasFeitas < numPerguntasLimit) {
-            int indiceAleatorio = new Random().nextInt(perguntasNaoRespondidas.size());
-            Pergunta pergunta = perguntasNaoRespondidas.get(indiceAleatorio);
-
-            pergunta.exibirPergunta();
-            System.out.print("Sua resposta: ");
-            char resposta = scanner.nextLine().charAt(0);
-
-            if (pergunta.verificarResposta(resposta)) {
-                System.out.println("Resposta correta!\n");
-                acertos++;
-            } else {
-                System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
+            if (personagens.size() == 1) {
+                System.out.println("O seu personagem é " + personagens.get(0).nome + "!");
+                break;
             }
-
-            // Remova a pergunta da lista de perguntas não respondidas
-            perguntasNaoRespondidas.remove(indiceAleatorio);
-
-            numPerguntasFeitas++; // Incrementa o contador de perguntas feitas
         }
-
-        System.out.println("Pontuação final: " + acertos + " de " + numPerguntasLimit + " perguntas.");
     }
-
 }
