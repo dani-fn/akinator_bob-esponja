@@ -8,29 +8,33 @@ import java.util.Random;
 public class JogoPerguntas {
 
     private List<Pergunta> perguntas;
-    private int pontuacao;
+    private int acertos;
 
     public JogoPerguntas() {
         perguntas = new ArrayList<>();
         // Adicione suas perguntas aqui
-        perguntas.add(new Pergunta("Qual é a casa em Hogwarts conhecida por sua coragem e bravura?", "Lufa-Lufa", "Sonserina", "Grifinória", 'c'));
-        perguntas.add(new Pergunta("Qual animal é o símbolo da casa Grifinória?", "Cervo", "Coruja", "Leão", 'c'));
-        perguntas.add(new Pergunta("Qual é o nome completo de Harry Potter?", "Harry James Potter", "Harry John Potter", "Harry Michael Potter", 'a'));
-        perguntas.add(new Pergunta("Qual é a varinha mágica de Harry Potter?", "Varinha de Sabugueiro", "Varinha de Carvalho", "Varinha de Teixo", 'a'));
-        perguntas.add(new Pergunta("Qual professor ensina Defesa Contra as Artes das Trevas em seu primeiro ano em Hogwarts?", "Professor Snape", "Professor Dumbledore", "Professor Quirrell", 'c'));
-        perguntas.add(new Pergunta("Qual é o nome do elfo doméstico que serve à família Malfoy?", "Dobby", "Kreacher", "Winky", 'b'));
-        perguntas.add(new Pergunta("Quem é o diretor da Escola de Magia e Bruxaria de Hogwarts?", "Professor Snape", "Professor Dumbledore", "Professor McGonagall", 'b'));
-        perguntas.add(new Pergunta("Qual é a matéria que a professora Sybill Trelawney leciona em Hogwarts?", "Poções", "Transfiguração", "Adivinhação", 'c'));
-        perguntas.add(new Pergunta("Qual é o nome do banco de bruxos que guarda o dinheiro de Harry Potter?", "Banco Mágico", "Banco das Bruxas", "Banco Gringotes", 'c'));
-        perguntas.add(new Pergunta("Qual é o nome do vilão das histórias de Harry Potter?", "Lorde das Trevas", "Lorde do Fogo", "Lorde da Morte", 'a'));
-
+        perguntas.add(new Pergunta("Seu personagem é do sexo M ou F?"));
+        perguntas.add(new Pergunta("Seu personagem tem um emprego?"));
+        perguntas.add(new Pergunta("Seu personagem trabalha com comida?"));
+        perguntas.add(new Pergunta("Seu personagem trabalha no Siri Cascudo?"));
+        perguntas.add(new Pergunta("...............?"));
+        perguntas.add(new Pergunta("Seu personagem é uma estrela-do-mar?"));
+        perguntas.add(new Pergunta("Seu personagem mora em um abacaxi?"));
+        perguntas.add(new Pergunta("Seu personagem é dono do Balde de Lixo?"));
+        perguntas.add(new Pergunta("Seu personagem é dono do Siri Cascudo?"));
+        perguntas.add(new Pergunta("Seu personagem é um caracol?"));
+        perguntas.add(new Pergunta("Seu personagem é uma baleia?"));
+        perguntas.add(new Pergunta("Seu personagem é um esquilo?"));
+        perguntas.add(new Pergunta("Seu personagem é professora?"));
+        perguntas.add(new Pergunta("Seu personagem é uma máquina?"));
+        
     }
 
     public void iniciarJogo() {
         Scanner scanner = new Scanner(System.in);
-        pontuacao = 0;
+        acertos = 0;
 
-        System.out.println("Bem-vindo ao jogo de perguntas e respostas!\n");
+        System.out.println("Bem-vindo ao Akinator da Fenda do Bikini!\n");
 
         for (Pergunta pergunta : perguntas) {
             pergunta.exibirPergunta();
@@ -39,18 +43,18 @@ public class JogoPerguntas {
 
             if (pergunta.verificarResposta(resposta)) {
                 System.out.println("Resposta correta!\n");
-                pontuacao++;
+                acertos++;
             } else {
                 System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
             }
         }
 
-        System.out.println("Pontuação final: " + pontuacao + " de " + perguntas.size() + " perguntas.");
+        System.out.println("Pontuação final: " + acertos + " de " + perguntas.size() + " perguntas.");
     }
 
     public void iniciarJogoPerguntasAleatorias() {
         Scanner scanner = new Scanner(System.in);
-        pontuacao = 0;
+        acertos = 0;
 
         System.out.println("Bem-vindo ao jogo de perguntas e respostas!\n");
 
@@ -66,7 +70,7 @@ public class JogoPerguntas {
 
             if (pergunta.verificarResposta(resposta)) {
                 System.out.println("Resposta correta!\n");
-                pontuacao++;
+                acertos++;
             } else {
                 System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
             }
@@ -75,12 +79,12 @@ public class JogoPerguntas {
             perguntasNaoRespondidas.remove(indiceAleatorio);
         }
 
-        System.out.println("Pontuação final: " + pontuacao + " de " + perguntas.size() + " perguntas.");
+        System.out.println("Pontuação final: " + acertos + " de " + perguntas.size() + " perguntas.");
     }
 
     public void iniciarJogoLimitada() {
         Scanner scanner = new Scanner(System.in);
-        pontuacao = 0;
+        acertos = 0;
 
         System.out.println("Bem-vindo ao jogo de perguntas e respostas!\n");
 
@@ -99,7 +103,7 @@ public class JogoPerguntas {
 
             if (pergunta.verificarResposta(resposta)) {
                 System.out.println("Resposta correta!\n");
-                pontuacao++;
+                acertos++;
             } else {
                 System.out.println("Resposta incorreta. A resposta correta era: " + pergunta.getRespostaCorreta());
             }
@@ -110,7 +114,7 @@ public class JogoPerguntas {
             numPerguntasFeitas++; // Incrementa o contador de perguntas feitas
         }
 
-        System.out.println("Pontuação final: " + pontuacao + " de " + numPerguntasLimit + " perguntas.");
+        System.out.println("Pontuação final: " + acertos + " de " + numPerguntasLimit + " perguntas.");
     }
 
 }
