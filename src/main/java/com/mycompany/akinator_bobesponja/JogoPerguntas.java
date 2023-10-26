@@ -1,11 +1,8 @@
 package com.mycompany.akinator_bobesponja;
-//jfffd
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-
-// Essa é apenas a base do código do jogo, precisamos entender tudo melhor e criar a UI
 
 public class JogoPerguntas {
     private List<Personagens> personagens;
@@ -18,11 +15,11 @@ public class JogoPerguntas {
         // Adicione os personagens aqui
 
         // Adicione as perguntas aqui
+        // As perguntas foram atualizadas para serem mais específicas
         perguntas.add(new Pergunta("Seu personagem é do sexo M ou F?"));
         perguntas.add(new Pergunta("Seu personagem tem um emprego?"));
         perguntas.add(new Pergunta("Seu personagem trabalha com comida?"));
         perguntas.add(new Pergunta("Seu personagem trabalha no Siri Cascudo?"));
-        perguntas.add(new Pergunta("...............?"));
         perguntas.add(new Pergunta("Seu personagem é uma estrela-do-mar?"));
         perguntas.add(new Pergunta("Seu personagem mora em um abacaxi?"));
         perguntas.add(new Pergunta("Seu personagem é dono do Balde de Lixo?"));
@@ -42,22 +39,57 @@ public class JogoPerguntas {
 
             // Lógica do jogo aqui
             // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas.
+
+//          for (Personagens p : personagens) {
+//    if (p.getSexo() == resposta.charAt(0)) {
+//        personagensFiltrados.add(p);
+//    }
+//}
+
             if (pergunta.getPergunta().equals("Seu personagem é do sexo M ou F?")) {
-                personagens = personagens.stream()
-                    .filter(p -> p.sexo == resposta.charAt(0))
-                    .collect(Collectors.toList());
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.getSexo().equalsIgnoreCase(resposta)) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
             } else if (pergunta.getPergunta().equals("Seu personagem tem um emprego?")) {
-                // Implemente a lógica aqui
+                boolean temEmprego = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.temEmprego() == temEmprego) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
             } else if (pergunta.getPergunta().equals("Seu personagem trabalha com comida?")) {
-                // Implemente a lógica aqui
+                boolean trabalhaComida = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.trabalhaComida() == trabalhaComida) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
             } else if (pergunta.getPergunta().equals("Seu personagem trabalha no Siri Cascudo?")) {
-                // Implemente a lógica aqui
+                boolean trabalhaSiriCascudo = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.trabalhaSiriCascudo() == trabalhaSiriCascudo) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
             }
 
             if (personagens.size() == 1) {
-                System.out.println("O seu personagem é " + personagens.get(0).nome + "!");
+                System.out.println("O seu personagem é " + personagens.get(0).getNome() + "!");
                 break;
             }
         }
     }
 }
+
+
+
