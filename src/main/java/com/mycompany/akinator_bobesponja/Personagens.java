@@ -15,7 +15,23 @@ public class Personagens {
         this.localTrabalho = localTrabalho;
         this.sexo = sexo;
     }
-
+    
+    public Personagens(String nome, String especie , String localTrabalho, char sexo) {
+        this.nome = nome;
+        this.especie = especie;
+        this.localTrabalho = localTrabalho;
+        this.sexo = sexo;
+    }
+    
+    public bool temEmprego() {
+        if (this.profissao.equals("")) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    
     public String getNome() {
         return nome;
     }

@@ -40,16 +40,10 @@ public class JogoPerguntas {
             // Lógica do jogo aqui
             // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas.
 
-//          for (Personagens p : personagens) {
-//    if (p.getSexo() == resposta.charAt(0)) {
-//        personagensFiltrados.add(p);
-//    }
-//}
-
             if (pergunta.getPergunta().equals("Seu personagem é do sexo M ou F?")) {
                 List<Personagens> personagensFiltrados = new ArrayList<>();
                 for (Personagens p : personagens) {
-                    if (p.getSexo().equalsIgnoreCase(resposta)) {
+                    if (p.getSexo() == resposta.charAt(0)) {
                         personagensFiltrados.add(p);
                     }
                 }
