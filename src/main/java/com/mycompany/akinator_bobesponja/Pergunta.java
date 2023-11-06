@@ -4,7 +4,8 @@ public class Pergunta {
 
     private String pergunta;
     private boolean resposta;
-
+    private char respostaCorreta;
+    
     public Pergunta(String pergunta) {
         this.pergunta = pergunta;
     }

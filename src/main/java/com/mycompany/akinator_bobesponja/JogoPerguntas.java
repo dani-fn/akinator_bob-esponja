@@ -13,23 +13,33 @@ public class JogoPerguntas {
         perguntas = new ArrayList<>();
 
         // Adicione os personagens aqui
+        personagens.add(new Personagens("Bob Esponja", "Esponja", "Cozinheiro", "Siri Cascudo", 'M'));
+        personagens.add(new Personagens("Patrick Estrela", "Estrela-do-mar", 'M'));
+        personagens.add(new Personagens("Lula Molusco", "Lula", "Balconista", "Siri Cascudo", 'M'));
+        personagens.add(new Personagens("Seu Siriguejo", "Caranguejo", "Proprietário", "Siri Cascudo", 'M'));
+        personagens.add(new Personagens("Plankton", "Crustáceo", "Propritário", "Balde de Lixo", 'M'));
+        personagens.add(new Personagens("Sandy", "Esquilo", "Cientista", "Home Office", 'F'));
+        personagens.add(new Personagens("Gary", "Caracol", 'M'));
+        personagens.add(new Personagens("Pérola", "Baleia", 'F'));
+        personagens.add(new Personagens("Sra. Puff", "Baiacu", "Professora", "Escola de Pilotagem", 'F'));
+        personagens.add(new Personagens("Karen", "Máquina", "Assistente pessoal", "Balde de Lixo", 'F'));
 
         // Adicione as perguntas aqui
         // As perguntas foram atualizadas para serem mais específicas
-        perguntas.add(new Pergunta("Seu personagem é do sexo M ou F?"));
-        perguntas.add(new Pergunta("Seu personagem tem um emprego?"));
-        perguntas.add(new Pergunta("Seu personagem trabalha com comida?"));
-        perguntas.add(new Pergunta("Seu personagem trabalha no Siri Cascudo?"));
-        perguntas.add(new Pergunta("Seu personagem é uma estrela-do-mar?"));
-        perguntas.add(new Pergunta("Seu personagem mora em um abacaxi?"));
-        perguntas.add(new Pergunta("Seu personagem é dono do Balde de Lixo?"));
-        perguntas.add(new Pergunta("Seu personagem é dono do Siri Cascudo?"));
-        perguntas.add(new Pergunta("Seu personagem é um caracol?"));
-        perguntas.add(new Pergunta("Seu personagem é uma baleia?"));
-        perguntas.add(new Pergunta("Seu personagem é um esquilo?"));
-        perguntas.add(new Pergunta("Seu personagem é professora?"));
+        perguntas.add(new Pergunta("Seu personagem é do sexo masculino?")); 
+        perguntas.add(new Pergunta("Seu personagem tem um emprego?"));  
+        perguntas.add(new Pergunta("Seu personagem trabalha com comida?")); 
+        perguntas.add(new Pergunta("Seu personagem trabalha no Siri Cascudo?")); 
+        perguntas.add(new Pergunta("Seu personagem é uma estrela-do-mar?"));  
+        perguntas.add(new Pergunta("Seu personagem é dono do Balde de Lixo?"));  
+        perguntas.add(new Pergunta("Seu personagem é dono do Siri Cascudo?"));  
+        perguntas.add(new Pergunta("Seu personagem é um caracol?"));  
+        perguntas.add(new Pergunta("Seu personagem é uma baleia?"));  
+        perguntas.add(new Pergunta("Seu personagem é um esquilo?"));  
+        perguntas.add(new Pergunta("Seu personagem é professora?"));  
         perguntas.add(new Pergunta("Seu personagem é uma máquina?"));
-    }
+        perguntas.add(new Pergunta("Seu personagem é uma lula?"));
+    }   
 
     public void iniciarJogo() {
         Scanner scanner = new Scanner(System.in);
