@@ -6,9 +6,8 @@ public class Personagens {
     public String profissao;
     public String localTrabalho;
     public char sexo;
-    //public boolean propriedade;
 
-    public Personagens(String nome, String especie, String profissao, String localTrabalho, char sexo) {
+    /*public Personagens(String nome, String especie, String profissao, String localTrabalho, char sexo) {
         this.nome = nome;
         this.especie = especie;
         this.profissao = profissao;
@@ -21,7 +20,28 @@ public class Personagens {
         this.especie = especie;
         this.sexo = sexo;
     }
+    */
     
+    public Personagens(String nome) {
+        this.nome = nome;
+    }
+
+    public void personagemEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public void personagemProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public void personagemLocaltrabalho(String localTrabalho) {
+        this.localTrabalho = localTrabalho;
+    }
+
+    public void personagemSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
     public boolean temEmprego() {
         return profissao != null && !profissao.isEmpty();
     }

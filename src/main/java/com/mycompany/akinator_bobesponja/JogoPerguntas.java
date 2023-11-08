@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class JogoPerguntas {
     private List<Personagens> personagens;
-    private List<Pergunta> perguntas;
+    private final List<Pergunta> perguntas;
 
     public JogoPerguntas() {
         personagens = new ArrayList<>();
@@ -23,6 +23,7 @@ public class JogoPerguntas {
         personagens.add(new Personagens("Pérola", "Baleia", 'F'));
         personagens.add(new Personagens("Sra. Puff", "Baiacu", "Professora", "Escola de Pilotagem", 'F'));
         personagens.add(new Personagens("Karen", "Máquina", "Assistente pessoal", "Balde de Lixo", 'F'));
+        
 
         // Adicione as perguntas aqui
         // As perguntas foram atualizadas para serem mais específicas
@@ -48,8 +49,8 @@ public class JogoPerguntas {
             String resposta = scanner.nextLine();
 
             // Lógica do jogo aqui
-            // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas.
-
+            // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas
+            
             if (pergunta.getPergunta().equals("Seu personagem é do sexo M ou F?")) {
                 List<Personagens> personagensFiltrados = new ArrayList<>();
                 for (Personagens p : personagens) {
@@ -85,15 +86,94 @@ public class JogoPerguntas {
                     }
                 }
                 personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é uma estrela-do-mar?")) {
+                boolean verificaEstrela = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaEstrela() == verificaEstrela) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é dono do Balde de Lixo?")) {
+                boolean donoBaldedeLixo = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.donoBaldedeLixo() == donoBaldedeLixo) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é dono do Siri Cascudo?")) {
+                boolean donoSiriCascudo = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.donoSiriCascudo() == donoSiriCascudo) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é um caracol?")) {
+                boolean verificaCaracol = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaCaracol() == verificaCaracol) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é uma baleia?")) {
+                boolean verificaBaleia = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaBaleia() == verificaBaleia) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é um esquilo?")) {
+                boolean verificaEsquilo = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaEsquilo() == verificaEsquilo) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é uma professora?")) {
+                boolean verificaProfessora = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaProfessora() == verificaProfessora) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é uma máquina?")) {
+                boolean verificaMaquina = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaMaquina() == verificaMaquina) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
+            } else if (pergunta.getPergunta().equals("Seu personagem é uma lula?")) {
+                boolean verificaLula = resposta.equalsIgnoreCase("sim");
+                List<Personagens> personagensFiltrados = new ArrayList<>();
+                for (Personagens p : personagens) {
+                    if (p.verificaLula() == verificaLula) {
+                        personagensFiltrados.add(p);
+                    }
+                }
+                personagens = personagensFiltrados;
             }
-
             if (personagens.size() == 1) {
                 System.out.println("O seu personagem é " + personagens.get(0).getNome() + "!");
                 break;
             }
         }
     }
-}
-
+}        
 
 
