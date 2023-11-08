@@ -12,7 +12,6 @@ public class JogoPerguntas {
         personagens = new ArrayList<>();
         perguntas = new ArrayList<>();
 
-        // Adicione os personagens aqui
         personagens.add(new Personagens("Bob Esponja", "Esponja", "Cozinheiro", "Siri Cascudo", 'M'));
         personagens.add(new Personagens("Patrick Estrela", "Estrela-do-mar", 'M'));
         personagens.add(new Personagens("Lula Molusco", "Lula", "Balconista", "Siri Cascudo", 'M'));
@@ -25,8 +24,6 @@ public class JogoPerguntas {
         personagens.add(new Personagens("Karen", "Máquina", "Assistente pessoal", "Balde de Lixo", 'F'));
         
 
-        // Adicione as perguntas aqui
-        // As perguntas foram atualizadas para serem mais específicas
         perguntas.add(new Pergunta("Seu personagem é do sexo masculino?")); 
         perguntas.add(new Pergunta("Seu personagem tem um emprego?"));  
         perguntas.add(new Pergunta("Seu personagem trabalha com comida?")); 
@@ -47,9 +44,6 @@ public class JogoPerguntas {
         for (Pergunta pergunta : perguntas) {
             pergunta.exibirPergunta();
             String resposta = scanner.nextLine();
-
-            // Lógica do jogo aqui
-            // Este é apenas um exemplo. Você precisará adaptar isso para se adequar às suas classes e perguntas
             
             if (pergunta.getPergunta().equals("Seu personagem é do sexo M ou F?")) {
                 List<Personagens> personagensFiltrados = new ArrayList<>();
